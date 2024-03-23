@@ -1,6 +1,6 @@
 package andrei.springboot.fotbal_proiect.controller;
 
-
+import andrei.springboot.fotbal_proiect.entity.Player;
 import andrei.springboot.fotbal_proiect.entity.Team;
 import andrei.springboot.fotbal_proiect.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,5 +44,11 @@ public class MyRESTController {
         Team team = teamService.getTeam(id);
         teamService.deleteTeam(id);
         return "Team with ID = " + id + " was deleted.";
+    }
+
+    @GetMapping("/teams/{teamId}/players")
+    public List<Player> showAllPlayersBySpecificTeam (@PathVariable String team) {
+        List<Player> players = teamService.findAllByName(team);
+        return players;
     }
 }

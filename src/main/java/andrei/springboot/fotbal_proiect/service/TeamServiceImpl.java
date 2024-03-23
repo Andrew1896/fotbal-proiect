@@ -1,6 +1,7 @@
 package andrei.springboot.fotbal_proiect.service;
 
 import andrei.springboot.fotbal_proiect.dao.TeamRepository;
+import andrei.springboot.fotbal_proiect.entity.Player;
 import andrei.springboot.fotbal_proiect.entity.Team;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,5 +37,11 @@ public class TeamServiceImpl implements TeamService {
     @Override
     public void deleteTeam(int id) {
         teamRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Player> findAllByName(String team) {
+        List<Player> players = teamRepository.findAllByName(team);
+        return null;
     }
 }
