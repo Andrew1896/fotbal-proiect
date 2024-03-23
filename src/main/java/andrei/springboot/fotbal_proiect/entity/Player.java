@@ -19,7 +19,7 @@ import jakarta.persistence.*;
     @Column(name = "position")
     private String position;
 
-    @Column(name = "team")
+    @Column(name = "team_name")
     private String team;
 
     public Player() {
