@@ -14,6 +14,5 @@ public interface TeamService {
 
     public void deleteTeam(int id);
 
-    public List<Player> findAllByName(String name);
-
+//    public List<Team> findAllByName(String name);
 }

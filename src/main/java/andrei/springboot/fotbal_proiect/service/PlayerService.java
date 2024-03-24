@@ -12,4 +12,6 @@ public interface PlayerService {
     public Player getPlayer (int id);
 
     public void deletePlayer (int id);
+
+//    public List<Player> findAllByName(String name);
 }

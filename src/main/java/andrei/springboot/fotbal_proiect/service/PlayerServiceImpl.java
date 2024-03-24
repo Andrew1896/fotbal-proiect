@@ -35,4 +35,9 @@ public class PlayerServiceImpl implements PlayerService {
     public void deletePlayer (int id) {
         playerRepository.deleteById(id);
     }
+//        @Override
+//        public List<Player> findAllByName(String name) {
+//            List<Player> players = playerRepository.findAllByName(name);
+//            return players;
+//        }
 }

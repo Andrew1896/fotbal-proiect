@@ -5,6 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface PlayerRepository extends JpaRepository<Player, Integer> {
-    public List<Player> findAllByName(String name);
-
+//    public List<Player> findAllByName(String name);
 }

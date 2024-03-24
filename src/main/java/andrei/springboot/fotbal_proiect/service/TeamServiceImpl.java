@@ -11,37 +11,37 @@ import java.util.Optional;
 @Service
 public class TeamServiceImpl implements TeamService {
 
-    @Autowired
-    private TeamRepository teamRepository;
+@Autowired
+private TeamRepository teamRepository;
 
-    @Override
-    public List<Team> getAllTeams() {
+@Override
+public List<Team> getAllTeams() {
         return teamRepository.findAll();
-    }
+        }
 
-    @Override
-    public void saveTeam(Team team) {
+@Override
+public void saveTeam(Team team) {
         teamRepository.save(team);
-    }
+        }
 
-    @Override
-    public Team getTeam(int id) {
+@Override
+public Team getTeam(int id) {
         Team team = null;
         Optional<Team> optional = teamRepository.findById(id);
         if (optional.isPresent()) {
-            team = optional.get();
+        team = optional.get();
         }
         return team;
-    }
+        }
 
-    @Override
-    public void deleteTeam(int id) {
+@Override
+public void deleteTeam(int id) {
         teamRepository.deleteById(id);
-    }
+        }
 
-    @Override
-    public List<Player> findAllByName(String team) {
-        List<Player> players = teamRepository.findAllByName(team);
-        return null;
-    }
+//    @Override
+//    public List<Team> findAllByName(String name) {
+//        List<Team> teams = teamRepository.findAllByName(name);
+//        return teams;
+//        }
 }
