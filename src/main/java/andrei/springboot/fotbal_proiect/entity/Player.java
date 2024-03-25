@@ -3,8 +3,8 @@ package andrei.springboot.fotbal_proiect.entity;
 import jakarta.persistence.*;
 
 @Entity
-    @Table(name = "players")
-    public class Player {
+@Table(name = "players")
+public class Player {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

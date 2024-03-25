@@ -6,7 +6,7 @@ import andrei.springboot.fotbal_proiect.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-//
+
 //@RestController
 //@RequestMapping("/api")
 public class MyRESTControllerTeam {
@@ -44,7 +44,7 @@ public class MyRESTControllerTeam {
 //        teamService.deleteTeam(id);
 //        return "Team with ID = " + id + " was deleted.";
 //    }
-//
+
 //    @GetMapping("/teams/name/{teams}")
 //    public List<Team> showAllPlayersBySpecificTeam(@PathVariable String name) {
 //        List<Team> teams = teamService.findAllByName(name);
