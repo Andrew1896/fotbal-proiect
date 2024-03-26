@@ -3,9 +3,12 @@ package andrei.springboot.fotbal_proiect.service;
 import andrei.springboot.fotbal_proiect.dao.PlayerRepository;
 import andrei.springboot.fotbal_proiect.entity.Player;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class PlayerServiceImpl implements PlayerService {
 
     @Autowired

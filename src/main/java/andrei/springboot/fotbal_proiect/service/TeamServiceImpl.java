@@ -39,9 +39,9 @@ public void deleteTeam(int id) {
         teamRepository.deleteById(id);
         }
 
-//    @Override
-//    public List<Team> findAllByName(String name) {
-//        List<Team> teams = teamRepository.findAllByName(name);
-//        return teams;
-//        }
+    @Override
+    public List<Team> findAllByName(String name) {
+        List<Team> teams = teamRepository.findAllByName(name);
+        return teams;
+        }
 }

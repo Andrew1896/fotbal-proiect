@@ -7,11 +7,11 @@ public interface PlayerService {
 
     public List<Player> getAllPlayers();
 
-    public void savePlayer (Player player);
+    public void savePlayer(Player player);
 
-    public Player getPlayer (int id);
+    public Player getPlayer(int id);
 
-    public void deletePlayer (int id);
+    public void deletePlayer(int id);
 
 //    public List<Player> findAllByName(String name);
 }

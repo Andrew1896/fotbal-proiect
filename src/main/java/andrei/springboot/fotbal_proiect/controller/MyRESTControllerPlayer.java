@@ -44,7 +44,7 @@ public class MyRESTControllerPlayer {
         return "Player with ID = " + id + " was deleted.";
     }
 
-//    @GetMapping("/players/name/players}")
+//    @GetMapping("/teams/name/players}")
 //    public List<Player> showAllPlayersBySpecificTeam(@PathVariable String name) {
 //        List<Player> players = playerService.findAllByName(name);
 //        return players;
