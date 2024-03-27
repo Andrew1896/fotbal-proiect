@@ -2,45 +2,43 @@ package andrei.springboot.fotbal_proiect.service;
 
 import andrei.springboot.fotbal_proiect.dao.PlayerRepository;
 import andrei.springboot.fotbal_proiect.entity.Player;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Optional;
+import java.util.NoSuchElementException;
 
 @Service
 public class PlayerServiceImpl implements PlayerService {
 
-    @Autowired
-    private PlayerRepository playerRepository; // TODO: 27.03.2024 Prin constructor
+    private PlayerRepository playerRepository;
+
+    public PlayerServiceImpl(PlayerRepository playerRepository) {
+        this.playerRepository = playerRepository;
+    }
 
     @Override
-    public List<Player> getAllPlayers () {
+    public List<Player> getAllPlayers() {
         return playerRepository.findAll();
     }
 
     @Override
-    public void savePlayer (Player player) {
+    public void savePlayer(Player player) {
         playerRepository.save(player);
     }
 
     @Override
-    public Player getPlayer (int id) { // TODO: 27.03.2024 foloseste orElseThrow intreaba de GPT
-        Player player = null;
-        Optional<Player> optional = playerRepository.findById(id);
-        if (optional.isPresent()) {
-            player = optional.get();
-        }
-        return player;
+    public Player getPlayer(int id) {
+        return playerRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Player not found with id: " + id));
     }
 
     @Override
-    public void deletePlayer (int id) {
+    public void deletePlayer(int id) {
         playerRepository.deleteById(id);
     }
-//        @Override
-//        public List<Player> findAllByName(String name) {
-//            List<Player> players = playerRepository.findAllByName(name);
-//            return players;
-//        }
+
+//    @Override
+//    public List<Player> findAllByName(String name) {
+//        List<Player> players = playerRepository.findAllByName(name);
+//        return players;
+//    }
 }

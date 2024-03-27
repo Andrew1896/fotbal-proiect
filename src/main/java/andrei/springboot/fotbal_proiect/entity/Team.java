@@ -9,14 +9,11 @@ public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id; // TODO: 27.03.2024 ID-ul de dorit sa fie de tip LONG
-    // TODO: 27.03.2024 Loc liber intre variabile inutil
+    private long id;
     @Column(name = "name")
     private String name;
-
     @Column(name = "founded")
     private int founded;
-
     @Column(name = "stadium")
     private String stadium;
 
@@ -29,7 +26,7 @@ public class Team {
         this.stadium = stadium;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

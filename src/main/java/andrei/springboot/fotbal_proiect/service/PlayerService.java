@@ -5,13 +5,13 @@ import java.util.List;
 
 public interface PlayerService {
 
-    public List<Player> getAllPlayers(); // TODO: 27.03.2024 Modificatorul de access pubic este inutil, toate metodele din interfete sunt publice
+    List<Player> getAllPlayers();
 
-    public void savePlayer(Player player); // TODO: 27.03.2024 Modificatorul de access pubic este inutil, toate metodele din interfete sunt publice
+    void savePlayer(Player player);
 
-    public Player getPlayer(int id); // TODO: 27.03.2024 Modificatorul de access pubic este inutil, toate metodele din interfete sunt publice
+    Player getPlayer(int id);
 
-    public void deletePlayer(int id); // TODO: 27.03.2024 Modificatorul de access pubic este inutil, toate metodele din interfete sunt publice
+    void deletePlayer(int id);
 
-//    public List<Player> findAllByName(String name);
+//    List<Player> findAllByName(String name);
 }

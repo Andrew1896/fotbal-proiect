@@ -9,17 +9,13 @@ public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;// TODO: 27.03.2024 ID-ul trebuie sa fie LONG
-    // TODO: 27.03.2024 Loc liber intre campuri inutil
+    private Long id;
     @Column(name = "surname")
     private String surname;
-
     @Column(name = "name")
     private String name;
-
     @Column(name = "position")
     private String position;
-
     @Column(name = "team_name")
     private String team;
 
@@ -33,11 +29,11 @@ public class Player {
         this.team = team;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
