@@ -9,8 +9,8 @@ public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
-
+    private int id;// TODO: 27.03.2024 ID-ul trebuie sa fie LONG
+    // TODO: 27.03.2024 Loc liber intre campuri inutil
     @Column(name = "surname")
     private String surname;
 

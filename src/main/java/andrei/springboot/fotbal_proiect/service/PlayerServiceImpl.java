@@ -12,7 +12,7 @@ import java.util.Optional;
 public class PlayerServiceImpl implements PlayerService {
 
     @Autowired
-    private PlayerRepository playerRepository;
+    private PlayerRepository playerRepository; // TODO: 27.03.2024 Prin constructor
 
     @Override
     public List<Player> getAllPlayers () {
@@ -25,7 +25,7 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
-    public Player getPlayer (int id) {
+    public Player getPlayer (int id) { // TODO: 27.03.2024 foloseste orElseThrow intreaba de GPT
         Player player = null;
         Optional<Player> optional = playerRepository.findById(id);
         if (optional.isPresent()) {

@@ -9,8 +9,8 @@ public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
-
+    private int id; // TODO: 27.03.2024 ID-ul de dorit sa fie de tip LONG
+    // TODO: 27.03.2024 Loc liber intre variabile inutil
     @Column(name = "name")
     private String name;
 
