@@ -8,3 +8,5 @@
 8) Explica ce inseamna bean-singleton? 
 9) Explica ce inseamna bean-prototype? 
 10) Diferenta dintre bean-singleton si bean-prototype?
+
+11) Cum gaseste Spring-ul beanurile?
