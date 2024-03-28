@@ -9,15 +9,11 @@ public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    // TODO: 28.03.2024 ID-ul trebuie sa fie Long nu long
-    private long id;
-    // TODO: 28.03.2024 Numele echipei trebuie sa fie UNIC la nivel de baza de date si nu poate sa fie null
-    // TODO: 28.03.2024 Configureaza asta aici in adnotarea @Column sa nu putem seta null si sa fie unique
     private Long id;
-    @Column(name = "name")
+    @Column(name = "name_team")
     private String name;
     @Column(name = "founded")
-    private int founded; // TODO: 28.03.2024 Intreaba pe CHAT-GPT:  De ce in cazul asta: @Column(name = "founded") private int founded;  e mai bine sa folosim Integer in loc de int ?
+    private Integer founded;
     @Column(name = "stadium")
     private String stadium;
 
@@ -34,7 +30,7 @@ public class Team {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -46,11 +42,11 @@ public class Team {
         this.name = name;
     }
 
-    public int getFounded() {
+    public Integer getFounded() {
         return founded;
     }
 
-    public void setFounded(int founded) {
+    public void setFounded(Integer founded) {
         this.founded = founded;
     }
 
