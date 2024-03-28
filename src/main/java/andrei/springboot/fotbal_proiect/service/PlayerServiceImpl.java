@@ -2,6 +2,7 @@ package andrei.springboot.fotbal_proiect.service;
 
 import andrei.springboot.fotbal_proiect.dao.PlayerRepository;
 import andrei.springboot.fotbal_proiect.entity.Player;
+import andrei.springboot.fotbal_proiect.entity.Team;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -36,9 +37,8 @@ public class PlayerServiceImpl implements PlayerService {
         playerRepository.deleteById(id);
     }
 
-//    @Override
-//    public List<Player> findAllByName(String name) {
-//        List<Player> players = playerRepository.findAllByName(name);
-//        return players;
-//    }
+    @Override
+    public List<Player>findAllByName(String name) {
+        return playerRepository.findAllByName(name);
+    }
 }

@@ -41,8 +41,8 @@ public class TeamController {
         return "Team with ID = " + id + " was deleted.";
     }
 
-    @GetMapping("/{name}/players")
-    public List<Team> showAllPlayersBySpecificTeam(@PathVariable String name) {
-        return teamService.findAllByName(name);
-    }
+//    @GetMapping("/{name}/players")
+//    public List<Team> showAllPlayersBySpecificTeam(@PathVariable String name) {
+//        return teamService.findAllByName(name);
+//    }
 }

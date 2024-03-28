@@ -3,7 +3,6 @@ package andrei.springboot.fotbal_proiect.service;
 import andrei.springboot.fotbal_proiect.dao.TeamRepository;
 import andrei.springboot.fotbal_proiect.entity.Team;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -37,8 +36,8 @@ public class TeamServiceImpl implements TeamService {
         teamRepository.deleteById(id);
     }
 
-    @Override
-    public List<Team> findAllByName(String name) {
-        return teamRepository.findAllByName(name);
-    }
+//    @Override
+//    public List<Team> findAllByName(String name) {
+//        return teamRepository.findAllByName(name);
+//    }
 }
