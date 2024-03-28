@@ -2,7 +2,6 @@ package andrei.springboot.fotbal_proiect.service;
 
 import andrei.springboot.fotbal_proiect.dao.PlayerRepository;
 import andrei.springboot.fotbal_proiect.entity.Player;
-import andrei.springboot.fotbal_proiect.entity.Team;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -10,7 +9,7 @@ import java.util.NoSuchElementException;
 @Service
 public class PlayerServiceImpl implements PlayerService {
 
-    private PlayerRepository playerRepository; // TODO: 28.03.2024  Make 'playerRepository' 'final'  . Trage atentia la ce sugereaza Intellij IDEA  ! ! !
+    private final PlayerRepository playerRepository;
 
     public PlayerServiceImpl(PlayerRepository playerRepository) {
         this.playerRepository = playerRepository;

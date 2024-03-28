@@ -10,7 +10,7 @@ public class Team {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @Column(name = "name_team")
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
     @Column(name = "founded")
     private Integer founded;
@@ -26,7 +26,7 @@ public class Team {
         this.stadium = stadium;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

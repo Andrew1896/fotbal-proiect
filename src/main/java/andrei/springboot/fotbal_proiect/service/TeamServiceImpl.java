@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 @Service
 public class TeamServiceImpl implements TeamService {
 
-    private TeamRepository teamRepository; // TODO: 28.03.2024  Make 'teamRepository' 'final'  . Trage atentia la ce sugereaza Intellij IDEA  ! ! !
+    private final TeamRepository teamRepository;
 
     public TeamServiceImpl(TeamRepository teamRepository) {
         this.teamRepository = teamRepository;
