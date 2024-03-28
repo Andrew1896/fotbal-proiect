@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 @Service
 public class PlayerServiceImpl implements PlayerService {
 
-    private PlayerRepository playerRepository;
+    private PlayerRepository playerRepository; // TODO: 28.03.2024  Make 'playerRepository' 'final'  . Trage atentia la ce sugereaza Intellij IDEA  ! ! !
 
     public PlayerServiceImpl(PlayerRepository playerRepository) {
         this.playerRepository = playerRepository;
