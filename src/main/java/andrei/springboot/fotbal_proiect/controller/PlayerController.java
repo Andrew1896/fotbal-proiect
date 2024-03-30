@@ -1,6 +1,7 @@
 package andrei.springboot.fotbal_proiect.controller;
 
 import andrei.springboot.fotbal_proiect.entity.Player;
+import andrei.springboot.fotbal_proiect.entity.Team;
 import andrei.springboot.fotbal_proiect.service.PlayerService;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -42,7 +43,8 @@ public class PlayerController {
     }
 
     @GetMapping("/{name}/players")
-    public List<Player> showAllPlayersBySpecificTeam(@PathVariable String name) {
-        return playerService.findAllByName(name);
+    public List<Player> showAllPlayersBySpecificTeam(@PathVariable String teamName) {
+            return playerService.findAllByName(teamName);
+        }
     }
-}
+

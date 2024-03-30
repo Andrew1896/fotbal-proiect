@@ -2,6 +2,8 @@ package andrei.springboot.fotbal_proiect.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "teams")
 public class Team {
@@ -11,19 +13,25 @@ public class Team {
     @Column(name = "id")
     private Long id;
     @Column(name = "name", nullable = false, unique = true)
-    private String name;
+    private String teamName;
     @Column(name = "founded")
     private Integer founded;
     @Column(name = "stadium")
     private String stadium;
+    private List<Player> players;
 
     public Team() {
     }
+    public List<Player> getPlayers() {
+        return players;
+    }
 
-    public Team(String name, int founded, String stadium) {
-        this.name = name;
+    public Team(String name, Integer founded, String stadium, List<Player> players) {
+        this.teamName = name;
         this.founded = founded;
         this.stadium = stadium;
+        this.players = players;
+
     }
 
     public Long getId() {
@@ -35,11 +43,11 @@ public class Team {
     }
 
     public String getName() {
-        return name;
+        return teamName;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.teamName = name;
     }
 
     public Integer getFounded() {
@@ -58,11 +66,15 @@ public class Team {
         this.stadium = stadium;
     }
 
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
+
     @Override
     public String toString() {
         return "Team{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + teamName + '\'' +
                 ", founded=" + founded +
                 ", stadium='" + stadium + '\'' +
                 '}';

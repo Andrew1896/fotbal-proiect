@@ -1,7 +1,9 @@
 package andrei.springboot.fotbal_proiect.service;
 
 import andrei.springboot.fotbal_proiect.dao.PlayerRepository;
+import andrei.springboot.fotbal_proiect.dao.TeamRepository;
 import andrei.springboot.fotbal_proiect.entity.Player;
+import andrei.springboot.fotbal_proiect.entity.Team;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -10,9 +12,11 @@ import java.util.NoSuchElementException;
 public class PlayerServiceImpl implements PlayerService {
 
     private final PlayerRepository playerRepository;
+    private final TeamRepository teamRepository;
 
-    public PlayerServiceImpl(PlayerRepository playerRepository) {
+    public PlayerServiceImpl(PlayerRepository playerRepository, TeamRepository teamRepository) {
         this.playerRepository = playerRepository;
+        this.teamRepository = teamRepository;
     }
 
     @Override
@@ -37,7 +41,13 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
-    public List<Player>findAllByName(String name) {
-        return playerRepository.findAllByName(name);
+    public List<Player> findAllByName(String teamName) {
+        List <Team> teams = teamRepository.findAllByName(teamName);
+        if (!teams.isEmpty()) {
+            Team team = teams.get(0);
+            return team.getPlayers();
+        } else {
+            return null;
+        }
     }
 }
