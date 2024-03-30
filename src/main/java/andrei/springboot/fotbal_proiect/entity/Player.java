@@ -18,9 +18,9 @@ public class Player {
     private String position;
     @Column(name = "team_name")
     private String team;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "teams_id")
-    private Team teamName;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "teams_id")
+//    private Team teamName;
 
     public Player() {
     }

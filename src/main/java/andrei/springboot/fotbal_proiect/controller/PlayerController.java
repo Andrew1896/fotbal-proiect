@@ -42,9 +42,9 @@ public class PlayerController {
         return "Player with ID = " + id + " was deleted.";
     }
 
-    @GetMapping("/{name}/players")
-    public List<Player> showAllPlayersBySpecificTeam(@PathVariable String teamName) {
-            return playerService.findAllByName(teamName);
-        }
+//    @GetMapping("/{name}/players")
+//    public List<Player> showAllPlayersBySpecificTeam(@PathVariable String teamName) {
+//            return playerService.findAllByName(teamName);
+//        }
     }
 
