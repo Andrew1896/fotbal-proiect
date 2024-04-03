@@ -2,13 +2,10 @@ package andrei.springboot.fotbal_proiect.service;
 
 import andrei.springboot.fotbal_proiect.dao.PlayerRepository;
 import andrei.springboot.fotbal_proiect.dao.TeamRepository;
-import andrei.springboot.fotbal_proiect.entity.Player;
 import andrei.springboot.fotbal_proiect.entity.Team;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Service
 public class TeamServiceImpl implements TeamService {
@@ -28,8 +25,13 @@ public class TeamServiceImpl implements TeamService {
 
     @Override
     public void saveTeam(Team team) {
-        // TODO: 03.04.2024 Ce se intampla daca salvezi o echipa a carei nume exista deja in baza de date ?
-        // TODO: 03.04.2024 Ce se intampla daca salvezi o echipa care are numele null ?
+        if (team.getName() == null) {
+            throw new IllegalArgumentException("Numele echipei nu poate fi null");
+        }
+        Team existingTeam = teamRepository.findByName(team.getName());
+        if (existingTeam != null) {
+            throw new IllegalArgumentException("Există deja o echipă cu același nume în baza de date");
+        }
         teamRepository.save(team);
     }
 
@@ -45,14 +47,14 @@ public class TeamServiceImpl implements TeamService {
         teamRepository.deleteById(id);
     }
 
-    @Override
-    public List<Player> getPlayersByTeamId(Long teamId) {
-        Optional<Team> teamOptional = teamRepository.findById(teamId);
-        if (teamOptional.isPresent()) {
-            Team team = teamOptional.get();
-            return team.getPlayers();
-        } else {
-            return null; // TODO: 03.04.2024 In loc sa returnezi null in cadrul colectiilor este indicat sa returnezi o colectie goala cu 0 elemente
-        }
-    }
+    //    @Override
+//    public List<Player> getPlayersByTeamId(Long teamId) {
+//        Optional<Team> teamOptional = teamRepository.findById(teamId);
+//        if (teamOptional.isPresent()) {
+//            Team team = teamOptional.get();
+//            return team.getPlayers();
+//        } else {
+//            return null; // TODO: 03.04.2024 In loc sa returnezi null in cadrul colectiilor este indicat sa returnezi o colectie goala cu 0 elemente
+//        }
+//    }
 }

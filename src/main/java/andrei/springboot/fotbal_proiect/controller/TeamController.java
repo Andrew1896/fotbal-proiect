@@ -1,6 +1,5 @@
 package andrei.springboot.fotbal_proiect.controller;
 
-import andrei.springboot.fotbal_proiect.entity.Player;
 import andrei.springboot.fotbal_proiect.entity.Team;
 import andrei.springboot.fotbal_proiect.service.TeamService;
 import org.springframework.http.HttpStatus;
@@ -28,9 +27,27 @@ public class TeamController {
         return teamService.getTeam(id);
     }
 
+//    @PostMapping
+//    public void addNewTeam(@RequestBody Team team) {
+//        teamService.saveTeam(team);
+//    }
+//
+//    @PutMapping
+//    public void updateTeam(@RequestBody Team team) {
+//        teamService.saveTeam(team);
+//    }
+
     @PostMapping
-    public void addNewTeam(@RequestBody Team team) {
-        teamService.saveTeam(team);
+    public ResponseEntity<String> addNewTeam(@RequestBody Team team) {
+        try {
+            teamService.saveTeam(team);
+            return ResponseEntity.ok("Echipa a fost salvată cu succes");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body
+                    ("A apărut o eroare la salvarea echipei");
+        }
     }
 
     @PutMapping
@@ -44,12 +61,12 @@ public class TeamController {
         return "Team with ID = " + id + " was deleted.";
     }
 
-    public ResponseEntity<List<Player>> getPlayersByTeamId(@PathVariable Long teamId) {
-        List<Player> players = teamService.getPlayersByTeamId(teamId);
-        if (players != null && !players.isEmpty()) {
-            return new ResponseEntity<>(players, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
+//        public ResponseEntity<List<Player>> getPlayersByTeamId(@PathVariable Long teamId) {
+//        List<Player> players = teamService.getPlayersByTeamId(teamId);
+//        if (players != null && !players.isEmpty()) {
+//            return new ResponseEntity<>(players, HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//    }
 }

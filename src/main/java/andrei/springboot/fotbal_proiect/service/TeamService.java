@@ -1,6 +1,5 @@
 package andrei.springboot.fotbal_proiect.service;
 
-import andrei.springboot.fotbal_proiect.entity.Player;
 import andrei.springboot.fotbal_proiect.entity.Team;
 import java.util.List;
 
@@ -14,5 +13,5 @@ public interface TeamService {
 
     void deleteTeam(int id);
 
-    List<Player> getPlayersByTeamId(Long teamName);
+    //    List<Player> getPlayersByTeamId(Long teamName);
 }

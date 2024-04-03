@@ -2,8 +2,6 @@ package andrei.springboot.fotbal_proiect.entity;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
 @Table(name = "teams")
 public class Team {
@@ -19,19 +17,19 @@ public class Team {
     @Column(name = "stadium")
     private String stadium;
     // TODO: 03.04.2024 Aici lipseste legatura cu clasa Player trebuie sa adaugi adnotatia care lipseste
-    private List<Player> players;
+//    private List<Player> players;
 
     public Team() {
     }
-    public List<Player> getPlayers() {
-        return players;
-    }
+//    public List<Player> getPlayers() {
+//        return players;
+//    }
 
-    public Team(String name, Integer founded, String stadium, List<Player> players) {
+    public Team(String name, Integer founded, String stadium) {
         this.teamName = name;
         this.founded = founded;
         this.stadium = stadium;
-        this.players = players;
+//        this.players = players;
 
     }
 
@@ -67,9 +65,9 @@ public class Team {
         this.stadium = stadium;
     }
 
-    public void setPlayers(List<Player> players) {
-        this.players = players;
-    }
+//    public void setPlayers(List<Player> players) {
+//        this.players = players;
+//    }
 
     @Override
     public String toString() {
