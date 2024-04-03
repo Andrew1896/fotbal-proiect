@@ -49,7 +49,7 @@ public class TeamServiceImpl implements TeamService {
             Team team = teamOptional.get();
             return team.getPlayers();
         } else {
-            return null;
+            return null; // TODO: 03.04.2024 In loc sa returnezi null in cadrul colectiilor este indicat sa returnezi o colectie goala cu 0 elemente
         }
     }
 }

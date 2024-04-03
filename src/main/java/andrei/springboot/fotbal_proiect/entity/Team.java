@@ -18,6 +18,7 @@ public class Team {
     private Integer founded;
     @Column(name = "stadium")
     private String stadium;
+    // TODO: 03.04.2024 Aici lipseste legatura cu clasa Player trebuie sa adaugi adnotatia care lipseste
     private List<Player> players;
 
     public Team() {

@@ -21,6 +21,8 @@ public class Player {
 //    @OneToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "teams_id")
 //    private Team teamName;
+    // TODO: 03.04.2024 Inceputul e bun. Relatia dintre Player si Team nu este @OneToOne, mai multi jucatori pot juca intr-o echipa, respectiv este ManyToOne.
+    // TODO: 03.04.2024 Many players in one team !! 
 
     public Player() {
     }
