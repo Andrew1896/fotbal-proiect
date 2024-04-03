@@ -28,6 +28,8 @@ public class TeamServiceImpl implements TeamService {
 
     @Override
     public void saveTeam(Team team) {
+        // TODO: 03.04.2024 Ce se intampla daca salvezi o echipa a carei nume exista deja in baza de date ?
+        // TODO: 03.04.2024 Ce se intampla daca salvezi o echipa care are numele null ?
         teamRepository.save(team);
     }
 
@@ -39,6 +41,7 @@ public class TeamServiceImpl implements TeamService {
 
     @Override
     public void deleteTeam(int id) {
+        // TODO: 03.04.2024 Ce se intampla daca incerci sa stergi o echipa cu un id care nu exista in baza de date ?
         teamRepository.deleteById(id);
     }
 
