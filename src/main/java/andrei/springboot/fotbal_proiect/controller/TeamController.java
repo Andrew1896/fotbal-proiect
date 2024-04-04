@@ -1,11 +1,11 @@
 package andrei.springboot.fotbal_proiect.controller;
 
+import andrei.springboot.fotbal_proiect.entity.Player;
 import andrei.springboot.fotbal_proiect.entity.Team;
 import andrei.springboot.fotbal_proiect.service.TeamService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -56,12 +56,12 @@ public class TeamController {
         }
     }
 
-//        public ResponseEntity<List<Player>> getPlayersByTeamId(@PathVariable Long teamId) {
-//        List<Player> players = teamService.getPlayersByTeamId(teamId);
-//        if (players != null && !players.isEmpty()) {
-//            return new ResponseEntity<>(players, HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//    }
+        public ResponseEntity<List<Player>> getPlayersByTeamId(@PathVariable Long teamId) {
+        List<Player> players = teamService.getPlayersByTeamId(teamId);
+        if (players != null && !players.isEmpty()) {
+            return new ResponseEntity<>(players, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }
