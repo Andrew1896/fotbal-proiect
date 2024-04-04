@@ -1,6 +1,5 @@
 package andrei.springboot.fotbal_proiect.service;
 
-import andrei.springboot.fotbal_proiect.dao.PlayerRepository;
 import andrei.springboot.fotbal_proiect.dao.TeamRepository;
 import andrei.springboot.fotbal_proiect.entity.Team;
 import org.springframework.stereotype.Service;
@@ -11,11 +10,9 @@ import java.util.NoSuchElementException;
 public class TeamServiceImpl implements TeamService {
 
     private final TeamRepository teamRepository;
-    private final PlayerRepository playerRepository;
 
-    public TeamServiceImpl(TeamRepository teamRepository, PlayerRepository playerRepository) {
+    public TeamServiceImpl(TeamRepository teamRepository) {
         this.teamRepository = teamRepository;
-        this.playerRepository = playerRepository;
     }
 
     @Override
@@ -38,12 +35,14 @@ public class TeamServiceImpl implements TeamService {
     @Override
     public Team getTeam(int id) {
         return teamRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Team not found with id: " + id));
+                .orElseThrow(() -> new NoSuchElementException("Echipa cu ID-ul: " + id + " nu a fost găsită"));
     }
 
     @Override
     public void deleteTeam(int id) {
-        // TODO: 03.04.2024 Ce se intampla daca incerci sa stergi o echipa cu un id care nu exista in baza de date ?
+        if (!teamRepository.existsById(id)) {
+            throw new IllegalArgumentException("Echipa cu ID-ul dat nu există în baza de date");
+        }
         teamRepository.deleteById(id);
     }
 

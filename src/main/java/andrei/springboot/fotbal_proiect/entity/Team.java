@@ -11,7 +11,7 @@ public class Team {
     @Column(name = "id")
     private Long id;
     @Column(name = "name", nullable = false, unique = true)
-    private String teamName;
+    private String name;
     @Column(name = "founded")
     private Integer founded;
     @Column(name = "stadium")
@@ -26,11 +26,10 @@ public class Team {
 //    }
 
     public Team(String name, Integer founded, String stadium) {
-        this.teamName = name;
+        this.name = name;
         this.founded = founded;
         this.stadium = stadium;
 //        this.players = players;
-
     }
 
     public Long getId() {
@@ -42,11 +41,11 @@ public class Team {
     }
 
     public String getName() {
-        return teamName;
+        return name;
     }
 
     public void setName(String name) {
-        this.teamName = name;
+        this.name = name;
     }
 
     public Integer getFounded() {
@@ -73,7 +72,7 @@ public class Team {
     public String toString() {
         return "Team{" +
                 "id=" + id +
-                ", name='" + teamName + '\'' +
+                ", name='" + name + '\'' +
                 ", founded=" + founded +
                 ", stadium='" + stadium + '\'' +
                 '}';

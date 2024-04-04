@@ -5,6 +5,7 @@ import andrei.springboot.fotbal_proiect.service.TeamService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -27,16 +28,6 @@ public class TeamController {
         return teamService.getTeam(id);
     }
 
-//    @PostMapping
-//    public void addNewTeam(@RequestBody Team team) {
-//        teamService.saveTeam(team);
-//    }
-//
-//    @PutMapping
-//    public void updateTeam(@RequestBody Team team) {
-//        teamService.saveTeam(team);
-//    }
-
     @PostMapping
     public ResponseEntity<String> addNewTeam(@RequestBody Team team) {
         try {
@@ -56,9 +47,13 @@ public class TeamController {
     }
 
     @DeleteMapping("/{id}")
-    public String deleteTeam(@PathVariable int id) {
-        teamService.deleteTeam(id);
-        return "Team with ID = " + id + " was deleted.";
+    public ResponseEntity<String> deleteTeam(@PathVariable int id) {
+        try {
+            teamService.deleteTeam(id);
+            return ResponseEntity.ok("Echipa cu ID-ul:" + id + " a fost ștearsă.");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
 //        public ResponseEntity<List<Player>> getPlayersByTeamId(@PathVariable Long teamId) {

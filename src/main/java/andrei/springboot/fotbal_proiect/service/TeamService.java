@@ -12,6 +12,4 @@ public interface TeamService {
     Team getTeam(int id);
 
     void deleteTeam(int id);
-
-    //    List<Player> getPlayersByTeamId(Long teamName);
 }
