@@ -56,14 +56,4 @@ public class TeamController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
-
-    @GetMapping("/players/{teamsId}")
-    public ResponseEntity<List<Player>> getPlayersByTeamId(@PathVariable Long teamId) {
-        List<Player> players = teamService.getPlayersByTeamId(teamId);
-        if (players != null && !players.isEmpty()) {
-            return new ResponseEntity<>(players, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
 }

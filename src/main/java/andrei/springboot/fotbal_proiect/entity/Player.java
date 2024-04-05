@@ -9,7 +9,7 @@ public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Long teamId;
     @Column(name = "surname")
     private String surname;
     @Column(name = "name")
@@ -32,12 +32,12 @@ public class Player {
         this.team = team;
     }
 
-    public int getId() {
-        return id;
+    public Long getTeamId() {
+        return teamId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setTeamId(Long teamId) {
+        this.teamId = teamId;
     }
 
     public String getSurname() {
@@ -75,7 +75,7 @@ public class Player {
     @Override
     public String toString() {
         return "Player{" +
-                "id=" + id +
+                "id=" + teamId +
                 ", surname='" + surname + '\'' +
                 ", name='" + name + '\'' +
                 ", position='" + position + '\'' +

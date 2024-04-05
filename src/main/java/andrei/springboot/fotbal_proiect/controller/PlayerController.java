@@ -2,6 +2,8 @@ package andrei.springboot.fotbal_proiect.controller;
 
 import andrei.springboot.fotbal_proiect.entity.Player;
 import andrei.springboot.fotbal_proiect.service.PlayerService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -39,6 +41,12 @@ public class PlayerController {
     public String deletePlayer(@PathVariable int id) {
         playerService.deletePlayer(id);
         return "Player with ID = " + id + " was deleted.";
+    }
+
+    @GetMapping("/{teamId}/players")
+    public ResponseEntity<List<Player>> getPlayersByTeamId(@PathVariable Long teamId) {
+        List<Player> players = playerService.getPlayersByTeamId(teamId);
+        return new ResponseEntity<>(players, HttpStatus.OK);
     }
 }
 

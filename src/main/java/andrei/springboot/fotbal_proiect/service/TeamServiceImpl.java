@@ -1,13 +1,10 @@
 package andrei.springboot.fotbal_proiect.service;
 
 import andrei.springboot.fotbal_proiect.dao.TeamRepository;
-import andrei.springboot.fotbal_proiect.entity.Player;
 import andrei.springboot.fotbal_proiect.entity.Team;
 import org.springframework.stereotype.Service;
-import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Service
 public class TeamServiceImpl implements TeamService {
@@ -47,16 +44,5 @@ public class TeamServiceImpl implements TeamService {
             throw new IllegalArgumentException("Echipa cu ID-ul dat nu există în baza de date");
         }
         teamRepository.deleteById(id);
-    }
-
-        @Override
-    public List<Player> getPlayersByTeamId(Long teamId) {
-        Optional<Team> teamOptional = teamRepository.findById(teamId);
-        if (teamOptional.isPresent()) {
-            Team team = teamOptional.get();
-            return team.getPlayers();
-        } else {
-            return Collections.emptyList();
-        }
     }
 }

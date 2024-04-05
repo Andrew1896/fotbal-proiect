@@ -1,7 +1,6 @@
 package andrei.springboot.fotbal_proiect.service;
 
 import andrei.springboot.fotbal_proiect.dao.PlayerRepository;
-import andrei.springboot.fotbal_proiect.dao.TeamRepository;
 import andrei.springboot.fotbal_proiect.entity.Player;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -11,11 +10,9 @@ import java.util.NoSuchElementException;
 public class PlayerServiceImpl implements PlayerService {
 
     private final PlayerRepository playerRepository;
-    private final TeamRepository teamRepository;
 
-    public PlayerServiceImpl(PlayerRepository playerRepository, TeamRepository teamRepository) {
+    public PlayerServiceImpl(PlayerRepository playerRepository) {
         this.playerRepository = playerRepository;
-        this.teamRepository = teamRepository;
     }
 
     @Override
@@ -37,5 +34,10 @@ public class PlayerServiceImpl implements PlayerService {
     @Override
     public void deletePlayer(int id) {
         playerRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Player> getPlayersByTeamId(Long teamId) {
+        return playerRepository.findByTeamId(teamId);
     }
 }

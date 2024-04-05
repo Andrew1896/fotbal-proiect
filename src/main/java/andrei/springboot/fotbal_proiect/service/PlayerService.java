@@ -12,4 +12,6 @@ public interface PlayerService {
     Player getPlayer(int id);
 
     void deletePlayer(int id);
+
+    List<Player> getPlayersByTeamId(Long teamId);
 }

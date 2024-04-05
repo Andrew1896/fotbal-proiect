@@ -27,7 +27,7 @@ public class Team {
         return players;
     }
 
-    public Team(String name, Integer founded, String stadium) {
+    public Team(String name, Integer founded, String stadium, List<Player> players) {
         this.name = name;
         this.founded = founded;
         this.stadium = stadium;
