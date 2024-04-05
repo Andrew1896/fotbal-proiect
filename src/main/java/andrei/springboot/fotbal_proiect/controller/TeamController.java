@@ -6,6 +6,7 @@ import andrei.springboot.fotbal_proiect.service.TeamService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -56,7 +57,8 @@ public class TeamController {
         }
     }
 
-        public ResponseEntity<List<Player>> getPlayersByTeamId(@PathVariable Long teamId) {
+    @GetMapping("/players/{teamsId}")
+    public ResponseEntity<List<Player>> getPlayersByTeamId(@PathVariable Long teamId) {
         List<Player> players = teamService.getPlayersByTeamId(teamId);
         if (players != null && !players.isEmpty()) {
             return new ResponseEntity<>(players, HttpStatus.OK);
