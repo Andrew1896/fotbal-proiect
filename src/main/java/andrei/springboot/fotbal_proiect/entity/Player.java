@@ -19,7 +19,7 @@ public class Player {
     @Column(name = "team_name")
     private String team;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "teams_id")
+    @JoinColumn(name = "team_id")
     private Team teamName;
 
     public Player() {
@@ -70,6 +70,14 @@ public class Player {
 
     public void setTeam(String team) {
         this.team = team;
+    }
+
+    public Team getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(Team teamName) {
+        this.teamName = teamName;
     }
 
     @Override
