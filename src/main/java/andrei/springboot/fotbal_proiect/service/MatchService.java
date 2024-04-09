@@ -1,4 +1,9 @@
 package andrei.springboot.fotbal_proiect.service;
 
-public class MatchService {
+import andrei.springboot.fotbal_proiect.entity.Match;
+import java.util.List;
+
+public interface MatchService {
+    
+    List<Match> getAllMatches();
 }
