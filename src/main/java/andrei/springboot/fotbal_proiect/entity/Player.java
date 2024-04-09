@@ -1,5 +1,6 @@
 package andrei.springboot.fotbal_proiect.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -9,18 +10,19 @@ public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long teamId;
+    private Long id;
     @Column(name = "surname")
     private String surname;
     @Column(name = "name")
     private String name;
     @Column(name = "position")
     private String position;
-    @Column(name = "team_name")
-    private String team;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @Column(name = "team")
+    private String teamName;
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id")
-    private Team teamName;
+    private Team team;
 
     public Player() {
     }
@@ -29,15 +31,15 @@ public class Player {
         this.surname = surname;
         this.name = name;
         this.position = position;
-        this.team = team;
+        this.teamName = team;
     }
 
-    public Long getTeamId() {
-        return teamId;
+    public Long getId() {
+        return id;
     }
 
-    public void setTeamId(Long teamId) {
-        this.teamId = teamId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getSurname() {
@@ -64,30 +66,30 @@ public class Player {
         this.position = position;
     }
 
-    public String getTeam() {
-        return team;
-    }
-
-    public void setTeam(String team) {
-        this.team = team;
-    }
-
-    public Team getTeamName() {
+    public String getTeamName() {
         return teamName;
     }
 
-    public void setTeamName(Team teamName) {
+    public void setTeamName(String teamName) {
         this.teamName = teamName;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 
     @Override
     public String toString() {
         return "Player{" +
-                "id=" + teamId +
+                "id=" + id +
                 ", surname='" + surname + '\'' +
                 ", name='" + name + '\'' +
                 ", position='" + position + '\'' +
-                ", team='" + team + '\'' +
+                ", team='" + teamName + '\'' +
                 '}';
     }
 }

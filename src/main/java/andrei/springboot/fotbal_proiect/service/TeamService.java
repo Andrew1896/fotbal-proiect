@@ -9,7 +9,7 @@ public interface TeamService {
 
     void saveTeam(Team team);
 
-    Team getTeam(int id);
+    Team getTeam(Long id);
 
-    void deleteTeam(int id);
+    void deleteTeam(Long id);
 }

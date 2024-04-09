@@ -9,9 +9,9 @@ public interface PlayerService {
 
     void savePlayer(Player player);
 
-    Player getPlayer(int id);
+    Player getPlayer(Long id);
 
-    void deletePlayer(int id);
+    void deletePlayer(Long id);
 
     List<Player> getPlayersByTeamId(Long teamId);
 }

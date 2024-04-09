@@ -33,13 +33,13 @@ public class TeamServiceImpl implements TeamService {
     }
 
     @Override
-    public Team getTeam(int id) {
+    public Team getTeam(Long id) {
         return teamRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("Echipa cu ID-ul: " + id + " nu a fost găsită"));
     }
 
     @Override
-    public void deleteTeam(int id) {
+    public void deleteTeam(Long id) {
         if (!teamRepository.existsById(id)) {
             throw new IllegalArgumentException("Echipa cu ID-ul dat nu există în baza de date");
         }

@@ -25,7 +25,7 @@ public class TeamController {
     }
 
     @GetMapping("/{id}")
-    public Team getTeam(@PathVariable int id) {
+    public Team getTeam(@PathVariable Long id) {
         return teamService.getTeam(id);
     }
 
@@ -48,7 +48,7 @@ public class TeamController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteTeam(@PathVariable int id) {
+    public ResponseEntity<String> deleteTeam(@PathVariable Long id) {
         try {
             teamService.deleteTeam(id);
             return ResponseEntity.ok("Echipa cu ID-ul:" + id + " a fost ștearsă.");

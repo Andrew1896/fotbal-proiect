@@ -23,7 +23,7 @@ public class PlayerController {
     }
 
     @GetMapping("/{id}")
-    public Player getPlayer(@PathVariable int id) {
+    public Player getPlayer(@PathVariable Long id) {
         return playerService.getPlayer(id);
     }
 
@@ -38,7 +38,7 @@ public class PlayerController {
     }
 
     @DeleteMapping("/{id}")
-    public String deletePlayer(@PathVariable int id) {
+    public String deletePlayer(@PathVariable Long id) {
         playerService.deletePlayer(id);
         return "Player with ID = " + id + " was deleted.";
     }
