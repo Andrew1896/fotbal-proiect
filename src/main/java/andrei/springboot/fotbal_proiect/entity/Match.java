@@ -21,7 +21,6 @@ public class Match {
     @Column(name = "score")
     private String score;
 
-
     public Match() {
     }
 
@@ -32,7 +31,6 @@ public class Match {
         this.location = location;
         this.score = score;
     }
-
 
     public Long getId() {
         return id;

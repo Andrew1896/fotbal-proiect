@@ -34,7 +34,7 @@ public class PlayerServiceImpl implements PlayerService {
     @Override
     public Player getPlayer(Long id) {
         return playerRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Player not found with id: " + id));
+                .orElseThrow(() -> new NoSuchElementException("Jucatorul cu ID-ul: " + id + " nu a fost găsită"));
     }
 
     @Override
