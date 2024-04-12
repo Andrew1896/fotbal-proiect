@@ -23,6 +23,20 @@
 
 # Team
 
+## /teams - POST
+
+- Descriere: Adaugă o nouă echipă de fotbal.
+- Cod de status: 201 Created
+- Body cerere:
+
+```json
+{
+  "name": "Echipa Nouă",
+  "founded": "1920",
+  "stadium": "Stadion Nou"
+}
+```
+
 ## /teams - GET
 
 - Descriere: Returnează toate echipele de fotbal.
@@ -58,20 +72,6 @@
   "name": "Echipa A",
   "founded": "1901",
   "stadium": "Stadion A"
-}
-```
-
-## /teams - POST
-
-- Descriere: Adaugă o nouă echipă de fotbal.
-- Cod de status: 201 Created
-- Body cerere:
-
-```json
-{
-  "name": "Echipa Nouă",
-  "founded": "1920",
-  "stadium": "Stadion Nou"
 }
 ```
 
@@ -137,6 +137,20 @@
 
 # Player
 
+## /players - POST
+
+- Descriere: Adaugă un nou jucător unei echipe.
+- Cod de status HTTP: 201 Created
+- Structura corpului cererii:
+
+```json
+{
+  "name": "Nume Jucător Nou",
+  "position": "Poziția Jucătorului",
+  "teamId": "ID-ul echipei la care va fi adăugat"
+}
+```
+
 ## /players - GET
 
 - Descriere: Returnează toți jucătorii.
@@ -175,21 +189,7 @@
 }
 ```
 
-## /players - POST
-
-- Descriere: Adaugă un nou jucător unei echipe.
-- Cod de status HTTP: 201 Created
-- Structura corpului cererii:
-
-```json
-{
-  "name": "Nume Jucător Nou",
-  "position": "Poziția Jucătorului",
-  "teamId": "ID-ul echipei la care va fi adăugat"
-}
-```
-
-# /player/{id} - PUT
+## /player/{id} - PUT
 
 - Descriere: Actualizează detaliile unui jucător specific pe baza ID-ului său.
 - Cod de status HTTP: 
@@ -225,6 +225,21 @@
 - Răspuns: Această cerere, de obicei, nu are un corp al răspunsului. Codul de status indică rezultatul operațiunii.
 
 # Matches
+
+## /matches - POST
+
+- Descriere: Programează un nou meci de fotbal.
+- Cod de status HTTP: 201 Created
+- Structura corpului cererii:
+
+```json
+{
+  "teamA": "Nume Echipa A",
+  "teamB": "Nume Echipa B",
+  "date": "Data Meciului",
+  "location": "Locația Meciului"
+}
+```
 
 ## /matches - GET
 
@@ -303,21 +318,6 @@
     "score": "Scorul final al meciului"
   }
 ]
-```
-
-## /matches - POST
-
-- Descriere: Programează un nou meci de fotbal.
-- Cod de status HTTP: 201 Created
-- Structura corpului cererii:
-
-```json
-{
-  "teamA": "Nume Echipa A",
-  "teamB": "Nume Echipa B",
-  "date": "Data Meciului",
-  "location": "Locația Meciului"
-}
 ```
 
 ## /match/{id} - PUT
