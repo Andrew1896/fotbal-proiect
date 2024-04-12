@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "teamA": "Barcelona",
+    "teamB": "Real Madrid",
+    "date": "31-12-2016",
+    "location": "Santiago Bernabéu Stadium",
+    "score": "1:1"
+  },
+  {
+    "id": 2,
+    "teamA": "Chelsea",
+    "teamB": "Manchester City",
+    "date": "31-12-2022",
+    "location": "Wembley Stadium",
+    "score": "2:2"
+  }
+]
