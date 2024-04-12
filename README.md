@@ -1,23 +1,25 @@
 # API
 
-- /teams - GET: Retrieve all football teams.
-- /team/{id} - GET: Retrieve a specific football team by its ID.
 - /teams - POST: Add a new football team.
-- /team/{id} - PUT: Update details of a specific football team.
-- /team/{id} - DELETE: Remove a football team.
+- /teams - GET: Retrieve all football teams.
+- /teams/{id} - GET: Retrieve a specific football team by its ID.
+- /teams/{id} - PUT: Update details of a specific football team.
+- /teams/{id} - DELETE: Remove a football team.
 - /teams/{teamId}/players - GET: Retrieve all players belonging to a specific team.
-- /players - GET: Retrieve all players.
-- /player/{id} - GET: Retrieve a specific player by their ID.
+
 - /players - POST: Add a new player to a team.
-- /player/{id} - PUT: Update details of a specific player.
-- /player/{id} - DELETE: Remove a player from a team.
+- /players - GET: Retrieve all players.
+- /players/{id} - GET: Retrieve a specific player by their ID.
+- /players/{id} - PUT: Update details of a specific player.
+- /players/{id} - DELETE: Remove a player from a team.
+
+- /matches - POST: Schedule a new football match.
 - /matches - GET: Retrieve all football matches.
-- /match/{id} - GET: Retrieve details of a specific match by its ID.
+- /matches/{id} - GET: Retrieve details of a specific match by its ID.
 - /matches/upcoming - GET: Retrieve all upcoming football matches.
 - /matches/results - GET: Retrieve results of past football matches.
-- /matches - POST: Schedule a new football match.
-- /match/{id} - PUT: Update details of a specific football match.
-- /match/{id} - DELETE: Cancel a scheduled football match.
+- /matches/{id} - PUT: Update details of a specific football match.
+- /matches/{id} - DELETE: Cancel a scheduled football match.
 
 # Structura requesturilor
 
