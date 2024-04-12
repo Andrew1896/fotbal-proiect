@@ -10,10 +10,6 @@ public class Match {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @Column(name = "teamA")
-    private String teamA;
-    @Column(name = "teamB")
-    private String teamB;
     @Column(name = "date")
     private String date;
     @Column(name = "location")
@@ -24,9 +20,7 @@ public class Match {
     public Match() {
     }
 
-    public Match(String teamA, String teamB, String date, String location, String score) {
-        this.teamA = teamA;
-        this.teamB = teamB;
+    public Match(String date, String location, String score) {
         this.date = date;
         this.location = location;
         this.score = score;
@@ -38,22 +32,6 @@ public class Match {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getTeamA() {
-        return teamA;
-    }
-
-    public void setTeamA(String teamA) {
-        this.teamA = teamA;
-    }
-
-    public String getTeamB() {
-        return teamB;
-    }
-
-    public void setTeamB(String teamB) {
-        this.teamB = teamB;
     }
 
     public String getDate() {
@@ -84,8 +62,6 @@ public class Match {
     public String toString() {
         return "Match{" +
                 "id=" + id +
-                ", teamA='" + teamA + '\'' +
-                ", teamB='" + teamB + '\'' +
                 ", date='" + date + '\'' +
                 ", location='" + location + '\'' +
                 ", score='" + score + '\'' +

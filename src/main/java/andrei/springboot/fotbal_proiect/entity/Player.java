@@ -17,8 +17,6 @@ public class Player {
     private String name;
     @Column(name = "position")
     private String position;
-    @Column(name = "team")
-    private String teamName;
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id")
@@ -27,11 +25,10 @@ public class Player {
     public Player() {
     }
 
-    public Player(String surname, String name, String position, String team) {
+    public Player(String surname, String name, String position) {
         this.surname = surname;
         this.name = name;
         this.position = position;
-        this.teamName = team;
     }
 
     public Long getId() {
@@ -66,14 +63,6 @@ public class Player {
         this.position = position;
     }
 
-    public String getTeamName() {
-        return teamName;
-    }
-
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
-    }
-
     public Team getTeam() {
         return team;
     }
@@ -89,7 +78,6 @@ public class Player {
                 ", surname='" + surname + '\'' +
                 ", name='" + name + '\'' +
                 ", position='" + position + '\'' +
-                ", team='" + teamName + '\'' +
                 '}';
     }
 }
