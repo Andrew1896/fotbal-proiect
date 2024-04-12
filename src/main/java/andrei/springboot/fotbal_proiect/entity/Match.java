@@ -14,6 +14,7 @@ public class Match {
     private String date;
     @Column(name = "location")
     private String location;
+    // TODO: 13.04.2024 Adauga inapoi TeamA si TeamB cum a fost
     @Column(name = "score")
     private String score;
 
