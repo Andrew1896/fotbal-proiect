@@ -1,0 +1,16 @@
+[
+  {
+    "teamA": "Barcelona",
+    "teamB": "Real Madrid",
+    "date": "2024-04-13T11:22:30",
+    "location": "Santiago Bernabéu Stadium",
+    "score": "1:1"
+  },
+  {
+    "teamA": "Chelsea",
+    "teamB": "Manchester City",
+    "date": "2024-04-14T11:22:30",
+    "location": "Wembley Stadium",
+    "score": "2:2"
+  }
+]

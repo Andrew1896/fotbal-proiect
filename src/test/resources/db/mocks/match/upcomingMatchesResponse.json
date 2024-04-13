@@ -1,0 +1,14 @@
+[
+  {
+    "teamA": "Barcelona",
+    "teamB": "Real Madrid",
+    "date": "2050-04-13T11:22:30",
+    "location": "Santiago Bernabéu Stadium"
+  },
+  {
+    "teamA": "Chelsea",
+    "teamB": "Manchester City",
+    "date": "2060-01-01T11:20:00",
+    "location": "Wembley Stadium"
+  }
+]

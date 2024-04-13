@@ -1,5 +1,6 @@
 package andrei.springboot.fotbal_proiect.service.apiclient;
 
+import andrei.springboot.fotbal_proiect.controller.MatchController;
 import andrei.springboot.fotbal_proiect.entity.Match;
 import andrei.springboot.fotbal_proiect.service.common.BaseRestTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,10 +69,10 @@ public class MatchApiClient {
         return response.getBody();
     }
 
-    public List<Match> getAllUpcomingMatches(String port) {
+    public List<MatchController.UpcomingMatches> getAllUpcomingMatches(String port) {
         var response = baseRestTemplate.exchange(
                 RequestEntity.get(GET_ALL_UPCOMING_MATCHES.replace("{PORT}", port)).build(),
-                new ParameterizedTypeReference<List<Match>>() {
+                new ParameterizedTypeReference<List<MatchController.UpcomingMatches>>() {
                 }
         );
 
