@@ -2,6 +2,7 @@ package andrei.springboot.fotbal_proiect.service.common;
 
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 
 import java.lang.annotation.Retention;
@@ -17,5 +18,6 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @ContextConfiguration(initializers = PostgreSQLContainerInitializer.class)
 @AutoConfigureTestDatabase(replace = NONE)
+@ActiveProfiles("test")
 public @interface PostgresIntegrationTest {
 }

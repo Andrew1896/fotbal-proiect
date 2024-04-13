@@ -4,8 +4,9 @@ import andrei.springboot.fotbal_proiect.dao.MatchRepository;
 import andrei.springboot.fotbal_proiect.entity.Match;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.*;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class MatchServiceImpl implements MatchService {
@@ -27,17 +28,22 @@ public class MatchServiceImpl implements MatchService {
                 .orElseThrow(() -> new NoSuchElementException("Meciul cu ID-ul: " + id + " nu a fost găsit"));
     }
 
-    public List<Map<String, Object>> getAllUpcomingMatches() {
-        List<Match> upcomingMatches = matchRepository.findByDate(LocalDate.now());
-        List<Map<String, Object>> matchesJson = new ArrayList<>();
-        for (Match match : upcomingMatches) {
-            Map<String, Object> matchJson = new HashMap<>();
-            matchJson.put("id", match.getId());
-            matchJson.put("name", match.getName());
-            matchJson.put("date", match.getDate());
-            matchJson.put("location", match.getLocation());
-            matchesJson.add(matchJson);
-        }
-        return matchesJson;
+    @Override
+    public List<Match> getAllUpcomingMatches() {
+        return matchRepository.findByDateAfter(LocalDateTime.now());
     }
+
+//    public List<Map<String, Object>> getAllUpcomingMatches() {
+//        List<Match> upcomingMatches = matchRepository.findByDate(LocalDate.now());
+//        List<Map<String, Object>> matchesJson = new ArrayList<>();
+//        for (Match match : upcomingMatches) {
+//            Map<String, Object> matchJson = new HashMap<>();
+//            matchJson.put("id", match.getId());
+//            matchJson.put("name", match.getName());
+//            matchJson.put("date", match.getDate());
+//            matchJson.put("location", match.getLocation());
+//            matchesJson.add(matchJson);
+//        }
+//        return matchesJson;
+//    }
 }

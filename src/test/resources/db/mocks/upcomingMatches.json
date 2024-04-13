@@ -1,0 +1,23 @@
+[
+  {
+    "teamA": "Barcelona",
+    "teamB": "Real Madrid",
+    "date": "2050-04-13T11:22:30",
+    "location": "Santiago Bernabéu Stadium",
+    "score": "0:0"
+  },
+  {
+    "teamA": "Chelsea",
+    "teamB": "Manchester City",
+    "date": "2060-01-01T11:20:00",
+    "location": "Wembley Stadium",
+    "score": "0:0"
+  },
+  {
+    "teamA": "Liverpool",
+    "teamB": "Tottenham",
+    "date": "2023-04-18T10:02:10",
+    "location": "Anfield Stadium",
+    "score": "0:0"
+  }
+]

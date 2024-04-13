@@ -1,17 +1,15 @@
 [
   {
-    "id": 1,
     "teamA": "Barcelona",
     "teamB": "Real Madrid",
-    "date": "31-12-2016",
+    "date": "2024-04-13T11:22:30",
     "location": "Santiago Bernabéu Stadium",
     "score": "1:1"
   },
   {
-    "id": 2,
     "teamA": "Chelsea",
     "teamB": "Manchester City",
-    "date": "31-12-2022",
+    "date": "2024-04-14T11:22:30",
     "location": "Wembley Stadium",
     "score": "2:2"
   }

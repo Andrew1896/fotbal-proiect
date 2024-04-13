@@ -2,14 +2,18 @@ package andrei.springboot.fotbal_proiect.service.utils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 
 public final class JsonReader {
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
+
+    static {
+        objectMapper.registerModule(new JavaTimeModule());
+    }
 
     public static <T> T read(String filePath, Class<T> valueType) {
         var inputStream = JsonReader.class.getClassLoader().getResourceAsStream(filePath);

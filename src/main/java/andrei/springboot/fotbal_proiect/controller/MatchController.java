@@ -27,4 +27,9 @@ public class MatchController {
     public Match getMatchById(@PathVariable Long id) {
         return matchService.getMatchById(id);
     }
+
+    @GetMapping("/upcoming")
+    public List<Match> getAllUpcomingMatches() {
+        return matchService.getAllUpcomingMatches();
+    }
 }
