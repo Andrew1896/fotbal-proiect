@@ -1,15 +1,15 @@
 package andrei.springboot.fotbal_proiect.controller;
 
+import andrei.springboot.fotbal_proiect.dto.rest.match.CreateMatchRequest;
+import andrei.springboot.fotbal_proiect.dto.rest.match.CreateMatchResponse;
+import andrei.springboot.fotbal_proiect.dto.rest.match.GetAllMatchesResponse;
 import andrei.springboot.fotbal_proiect.entity.Match;
 import andrei.springboot.fotbal_proiect.service.MatchService;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -26,8 +26,13 @@ public class MatchController {
         this.matchService = matchService;
     }
 
+    @PostMapping
+    public CreateMatchResponse createMatch(@RequestBody CreateMatchRequest request) {
+        return matchService.createMatch(request);
+    }
+
     @GetMapping
-    public List<Match> getAllMatches() {
+    public List<GetAllMatchesResponse> getAllMatches() {
         return matchService.getAllMatches();
     }
 

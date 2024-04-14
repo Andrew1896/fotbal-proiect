@@ -1,6 +1,9 @@
 package andrei.springboot.fotbal_proiect.service.apiclient;
 
 import andrei.springboot.fotbal_proiect.controller.MatchController;
+import andrei.springboot.fotbal_proiect.dto.rest.match.CreateMatchRequest;
+import andrei.springboot.fotbal_proiect.dto.rest.match.CreateMatchResponse;
+import andrei.springboot.fotbal_proiect.dto.rest.match.GetAllMatchesResponse;
 import andrei.springboot.fotbal_proiect.entity.Match;
 import andrei.springboot.fotbal_proiect.service.common.BaseRestTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +28,12 @@ public class MatchApiClient {
     @Autowired
     private BaseRestTemplate baseRestTemplate;
 
-    public Match save(String port, Match match) {
+    public CreateMatchResponse createMatch(String port, CreateMatchRequest match) {
         var response = baseRestTemplate.exchange(
                 RequestEntity.post(SAVE_MATCH.replace("{PORT}", port))
                         .contentType(APPLICATION_JSON)
                         .body(match),
-                new ParameterizedTypeReference<Match>() {
+                new ParameterizedTypeReference<CreateMatchResponse>() {
                 }
         );
 
@@ -56,10 +59,10 @@ public class MatchApiClient {
         return response.getBody();
     }
 
-    public List<Match> getAllMatches(String port) {
+    public List<GetAllMatchesResponse> getAllMatches(String port) {
         var response = baseRestTemplate.exchange(
                 RequestEntity.get(GET_ALL_MATCHES.replace("{PORT}", port)).build(),
-                new ParameterizedTypeReference<List<Match>>() {
+                new ParameterizedTypeReference<List<GetAllMatchesResponse>>() {
                 }
         );
 

@@ -1,25 +1,31 @@
 package andrei.springboot.fotbal_proiect.service;
 
 import andrei.springboot.fotbal_proiect.dao.MatchRepository;
+import andrei.springboot.fotbal_proiect.dto.rest.match.CreateMatchRequest;
+import andrei.springboot.fotbal_proiect.dto.rest.match.CreateMatchResponse;
+import andrei.springboot.fotbal_proiect.dto.rest.match.GetAllMatchesResponse;
 import andrei.springboot.fotbal_proiect.entity.Match;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 @Service
 public class MatchServiceImpl implements MatchService {
 
-    private MatchRepository matchRepository;
+    private final MatchRepository matchRepository;
 
     public MatchServiceImpl(MatchRepository matchRepository) {
         this.matchRepository = matchRepository;
     }
 
     @Override
-    public List<Match> getAllMatches() {
-        return matchRepository.findAll();
+    public List<GetAllMatchesResponse> getAllMatches() {
+        return matchRepository.findAll()
+                .stream()
+                .map(GetAllMatchesResponse::fromEntity)
+                .toList();
     }
 
     @Override
@@ -33,17 +39,12 @@ public class MatchServiceImpl implements MatchService {
         return matchRepository.findByDateAfter(LocalDateTime.now());
     }
 
-//    public List<Map<String, Object>> getAllUpcomingMatches() {
-//        List<Match> upcomingMatches = matchRepository.findByDate(LocalDate.now());
-//        List<Map<String, Object>> matchesJson = new ArrayList<>();
-//        for (Match match : upcomingMatches) {
-//            Map<String, Object> matchJson = new HashMap<>();
-//            matchJson.put("id", match.getId());
-//            matchJson.put("name", match.getName());
-//            matchJson.put("date", match.getDate());
-//            matchJson.put("location", match.getLocation());
-//            matchesJson.add(matchJson);
-//        }
-//        return matchesJson;
-//    }
+    @Override
+    public CreateMatchResponse createMatch(CreateMatchRequest request) {
+        Match match = request.toEntity();
+
+        Match matchSaved = matchRepository.save(match);
+
+        return CreateMatchResponse.fromEntity(matchSaved);
+    }
 }

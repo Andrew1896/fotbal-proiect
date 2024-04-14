@@ -2,6 +2,9 @@ package andrei.springboot.fotbal_proiect.service.it;
 
 import andrei.springboot.fotbal_proiect.controller.MatchController.UpcomingMatches;
 import andrei.springboot.fotbal_proiect.dao.MatchRepository;
+import andrei.springboot.fotbal_proiect.dto.rest.match.CreateMatchRequest;
+import andrei.springboot.fotbal_proiect.dto.rest.match.CreateMatchResponse;
+import andrei.springboot.fotbal_proiect.dto.rest.match.GetAllMatchesResponse;
 import andrei.springboot.fotbal_proiect.entity.Match;
 import andrei.springboot.fotbal_proiect.service.apiclient.MatchApiClient;
 import andrei.springboot.fotbal_proiect.service.common.PostgresIntegrationTest;
@@ -38,17 +41,43 @@ class MatchControllerTest {
     @DisplayName("Get all matches")
     void getAllMatchesTest() {
         //        GIVEN
-        List<Match> expectedMatchesTransient = JsonReader.read("db/mocks/match/allMatches.json", MATCH_LIST_TYPE_REFERENCE);
-        List<Match> expectedMatchesPersisted = matchRepository.saveAll(expectedMatchesTransient);
+        List<Match> expectedMatchesTransient = JsonReader.read("db/mocks/match/allMatchesTransient.json", MATCH_LIST_TYPE_REFERENCE);
+        matchRepository.saveAll(expectedMatchesTransient);
 
         //        WHEN
-        List<Match> allMatches = matchApiClient.getAllMatches(port);
+        List<GetAllMatchesResponse> allMatches = matchApiClient.getAllMatches(port);
 
         //        THEN
+        List<GetAllMatchesResponse> expectedGetAllMatchesResponse = JsonReader.read("db/mocks/match/allMatchesResponse.json", MATCH_LIST_RESPONSE_TYPE_REFERENCE);
+
+        allMatches.forEach(match -> assertThat(match.getId()).isNotNull());
+
         assertThat(allMatches)
                 .hasSize(2)
                 .usingRecursiveFieldByFieldElementComparatorIgnoringFields("id")
-                .containsAll(expectedMatchesPersisted);
+                .containsAll(expectedGetAllMatchesResponse);
+    }
+
+    @Test
+    @DisplayName("Create new match")
+    void createMatchTest() {
+        //        GIVEN
+        CreateMatchRequest expectedMatchesTransient = JsonReader.read("db/mocks/match/createMatchRequest.json", CREATE_MATCH_REQUEST_TYPE_REFERENCE);
+
+        //        WHEN
+        CreateMatchResponse createdMatch = matchApiClient.createMatch(port, expectedMatchesTransient);
+
+        //        THEN
+        CreateMatchResponse expectedCreatedMatch = JsonReader.read("db/mocks/match/createMatchResponse.json", CREATE_MATCH_RESPONSE_TYPE_REFERENCE);
+
+        assertThat(createdMatch).isNotNull();
+        assertThat(createdMatch.getId()).isNotNull();
+
+        assertThat(createdMatch)
+                .usingRecursiveComparison(RecursiveComparisonConfiguration.builder()
+                        .withIgnoredFields("id") // Ignores the 'id' field in comparison
+                        .build())
+                .isEqualTo(expectedCreatedMatch);
     }
 
     @Test
@@ -93,6 +122,9 @@ class MatchControllerTest {
 
     //    @formatter:off
     private static final TypeReference<List<Match>> MATCH_LIST_TYPE_REFERENCE = new TypeReference<>() {};
+    private static final TypeReference<List<GetAllMatchesResponse>> MATCH_LIST_RESPONSE_TYPE_REFERENCE = new TypeReference<>() {};
     private static final TypeReference<List<UpcomingMatches>> MATCH_UPCOMING_LIST_TYPE_REFERENCE = new TypeReference<>() {};
     private static final TypeReference<Match> MATCH_TYPE_REFERENCE = new TypeReference<>() {};
+    private static final TypeReference<CreateMatchRequest> CREATE_MATCH_REQUEST_TYPE_REFERENCE = new TypeReference<>() {};
+    private static final TypeReference<CreateMatchResponse> CREATE_MATCH_RESPONSE_TYPE_REFERENCE = new TypeReference<>() {};
 }

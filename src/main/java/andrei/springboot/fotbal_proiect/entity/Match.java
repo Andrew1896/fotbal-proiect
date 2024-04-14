@@ -1,10 +1,17 @@
 package andrei.springboot.fotbal_proiect.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "matches")
 public class Match {
@@ -24,61 +31,10 @@ public class Match {
     @Column(name = "score")
     private String score;
 
-    public Match() {
-    }
-
     public Match(LocalDateTime date, String location, String score) {
         this.date = date;
         this.location = location;
         this.score = score;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public LocalDateTime getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDateTime date) {
-        this.date = date;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getScore() {
-        return score;
-    }
-
-    public void setScore(String score) {
-        this.score = score;
-    }
-
-    public String getTeamA() {
-        return teamA;
-    }
-
-    public void setTeamA(String teamA) {
-        this.teamA = teamA;
-    }
-
-    public String getTeamB() {
-        return teamB;
-    }
-
-    public void setTeamB(String teamB) {
-        this.teamB = teamB;
     }
 
     @Override
