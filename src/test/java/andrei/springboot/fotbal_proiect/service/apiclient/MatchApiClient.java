@@ -10,11 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.RequestEntity;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
-
 import static org.springframework.http.MediaType.APPLICATION_JSON;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Component

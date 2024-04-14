@@ -7,7 +7,6 @@ import andrei.springboot.fotbal_proiect.dto.rest.match.GetAllMatchesResponse;
 import andrei.springboot.fotbal_proiect.entity.Match;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -42,9 +41,7 @@ public class MatchServiceImpl implements MatchService {
     @Override
     public CreateMatchResponse createMatch(CreateMatchRequest request) {
         Match match = request.toEntity();
-
         Match matchSaved = matchRepository.save(match);
-
         return CreateMatchResponse.fromEntity(matchSaved);
     }
 }
