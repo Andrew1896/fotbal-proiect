@@ -4,7 +4,6 @@ import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.MapPropertySource;
 import org.testcontainers.containers.PostgreSQLContainer;
-
 import java.util.HashMap;
 import java.util.Map;
 

@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -31,7 +29,9 @@ public class Match {
     @Column(name = "score")
     private String score;
 
-    public Match(LocalDateTime date, String location, String score) {
+    public Match(String teamA, String teamB, LocalDateTime date, String location, String score) {
+        this.teamA = teamA;
+        this.teamB = teamB;
         this.date = date;
         this.location = location;
         this.score = score;
